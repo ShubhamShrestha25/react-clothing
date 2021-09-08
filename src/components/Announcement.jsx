@@ -10,6 +10,7 @@ const Container = styled.div`
   align-items: center;
   font-size: 14px;
   font-weight: 500;
+  cursor: default;
 `;
 
 const Announcement = () => {
