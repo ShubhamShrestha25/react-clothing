@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsonwebtoken": "^8.5.1"
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^8.5.1",
+    "stripe": "^8.178.0"
   }
 }

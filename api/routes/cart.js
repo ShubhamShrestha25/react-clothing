@@ -46,11 +46,10 @@ router.delete("/:id", verifyTokenAndAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-cart;
 
 //GET USER CART
 
-router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/find/:userId", verifyTokenAndAuth, async (req, res) => {
   try {
     const cart = await Cart.findOne({ userId: req.params.userId });
     res.status(200).json(cart);
@@ -70,4 +69,4 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-module.exports = dCart;
+module.exports = router;
