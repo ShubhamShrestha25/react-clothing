@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Badge from "@material-ui/core/Badge";
 import { mobile } from "../resposive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -85,7 +86,9 @@ const Navbar = () => {
           </SearchCointainer>
         </Left>
         <Center>
-          <Logo>XoXo.</Logo>
+          <Link to="/" className="link">
+            <Logo>XoXo.</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
