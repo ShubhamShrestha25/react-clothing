@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router";
-import { userRequest } from "../requestMethods";
 import { Link } from "react-router-dom";
 
 const Success = () => {
