@@ -11,6 +11,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import Success from "./pages/Success";
 
 function App() {
   const user = true;
@@ -22,19 +23,22 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/products/:category">
+          <Route path="/products/:category">
             <ProductList />
           </Route>
-          <Route exact path="/product/:id">
+          <Route path="/product/:id">
             <Product />
           </Route>
-          <Route exact path="/cart">
+          <Route  path="/cart">
             <Cart />
           </Route>
-          <Route exact path="/login">
+          <Route  path="/success">
+            <Success />
+          </Route>
+          <Route  path="/login">
             {user ? <Redirect to="/" /> : <Login />}
           </Route>
-          <Route exact path="/register">
+          <Route  path="/register">
             {user ? <Redirect to="/" /> : <Register />}
           </Route>
         </Switch>
