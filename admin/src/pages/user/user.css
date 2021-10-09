@@ -1,0 +1,154 @@
+.user {
+  flex: 4;
+  padding: 20px;
+}
+
+.user-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-add-button {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+}
+
+.user-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.user-show {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-right: 20px;
+}
+
+.user-update {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.user-show-top {
+  display: flex;
+  align-items: center;
+}
+
+.user-show-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-show-top-title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.user-show-username {
+  font-weight: 600;
+}
+
+.user-show-user-title {
+  font-weight: 300;
+}
+
+.user-show-bottom {
+  margin-top: 25px;
+}
+
+.user-show-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(175, 170, 170);
+}
+
+.user-show-info {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+  color: #444;
+}
+
+.user-show-icon {
+  font-size: 18px !important;
+}
+
+.user-show-info-title {
+  margin-left: 10px;
+}
+
+.user-update-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.user-update-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.user-update-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.user-update-item > label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.user-update-input {
+  border: none;
+  width: 240px;
+  height: 30px;
+  border-bottom: 1px solid grey;
+}
+
+.user-update-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-update-upload {
+  display: flex;
+  align-items: center;
+}
+
+.user-update-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.user-update-icon {
+  cursor: pointer;
+}
+
+.user-update-button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: darkblue;
+  color: #fff;
+  font-weight: 600;
+}
