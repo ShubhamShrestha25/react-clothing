@@ -33,7 +33,7 @@ const WidgetLarge = () => {
           <th className="widget-lg-th">Status</th>
         </tr>
         {orders.map((order) => (
-          <tr className="widget-lg-tr">
+          <tr className="widget-lg-tr" key={order.userId}>
             <td className="widget-lg-user">
               <span className="widget-lg-name">{order.userId}</span>
             </td>
