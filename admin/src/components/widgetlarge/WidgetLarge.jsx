@@ -1,7 +1,23 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { userRequest } from "../../requestMethod";
+import { format } from "timeago.js";
 import "./widgetLarge.css";
 
 const WidgetLarge = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await userRequest.get("orders");
+        setOrders(res.data);
+      } catch {}
+    };
+    getOrders();
+  }, []);
+
   const Button = ({ type }) => {
     return <button className={"widget-lg-button " + type}>{type}</button>;
   };
@@ -16,66 +32,18 @@ const WidgetLarge = () => {
           <th className="widget-lg-th">Amount</th>
           <th className="widget-lg-th">Status</th>
         </tr>
-        <tr className="widget-lg-tr">
-          <td className="widget-lg-user">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Loading !!!!"
-              className="widget-lg-img"
-            />
-            <span className="widget-lg-name">Susan Shrestha</span>
-          </td>
-          <td className="widget-lg-date">3 july 2021</td>
-          <td className="widget-lg-amount">$123.00</td>
-          <td className="widget-lg-status">
-            <Button type="Approved" />
-          </td>
-        </tr>
-        <tr className="widget-lg-tr">
-          <td className="widget-lg-user">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Loading !!!!"
-              className="widget-lg-img"
-            />
-            <span className="widget-lg-name">Susan Shrestha</span>
-          </td>
-          <td className="widget-lg-date">3 july 2021</td>
-          <td className="widget-lg-amount">$123.00</td>
-          <td className="widget-lg-status">
-            <Button type="Pending" />
-          </td>
-        </tr>
-        <tr className="widget-lg-tr">
-          <td className="widget-lg-user">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Loading !!!!"
-              className="widget-lg-img"
-            />
-            <span className="widget-lg-name">Susan Shrestha</span>
-          </td>
-          <td className="widget-lg-date">3 july 2021</td>
-          <td className="widget-lg-amount">$123.00</td>
-          <td className="widget-lg-status">
-            <Button type="Declined" />
-          </td>
-        </tr>
-        <tr className="widget-lg-tr">
-          <td className="widget-lg-user">
-            <img
-              src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Loading !!!!"
-              className="widget-lg-img"
-            />
-            <span className="widget-lg-name">Susan Shrestha</span>
-          </td>
-          <td className="widget-lg-date">3 july 2021</td>
-          <td className="widget-lg-amount">$123.00</td>
-          <td className="widget-lg-status">
-            <Button type="Approved" />
-          </td>
-        </tr>
+        {orders.map((order) => (
+          <tr className="widget-lg-tr">
+            <td className="widget-lg-user">
+              <span className="widget-lg-name">{order.userId}</span>
+            </td>
+            <td className="widget-lg-date">{format(order.createdAt)}</td>
+            <td className="widget-lg-amount">{order.amount}</td>
+            <td className="widget-lg-status">
+              <Button type={order.status} />
+            </td>
+          </tr>
+        ))}
       </table>
     </div>
   );

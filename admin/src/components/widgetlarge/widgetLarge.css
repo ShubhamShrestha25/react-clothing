@@ -44,15 +44,15 @@
   border-radius: 10px;
 }
 
-.widget-lg-button.Approved {
+.widget-lg-button.approved {
   background-color: #e5faf2;
   color: #3bb077;
 }
-.widget-lg-button.Declined {
+.widget-lg-button.declined {
   background-color: #fff0f1;
   color: #d95087;
 }
-.widget-lg-button.Pending {
+.widget-lg-button.pending {
   background-color: #ebf1fe;
   color: #2a7ade;
 }
