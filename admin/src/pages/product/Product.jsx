@@ -1,86 +1,118 @@
-import { Publish } from "@material-ui/icons";
-import React from "react";
-import { Link } from "react-router-dom";
-import Chart from "../../components/chart/Chart";
-import { productData } from "../../DummyData";
+import { Link, useLocation } from "react-router-dom";
 import "./product.css";
+import Chart from "../../components/chart/Chart";
+import { Publish } from "@material-ui/icons";
+import { useSelector } from "react-redux";
+import { useEffect, useMemo, useState } from "react";
+import { userRequest } from "../../requestMethods";
 
-const Product = () => {
+export default function Product() {
+  const location = useLocation();
+  const productId = location.pathname.split("/")[2];
+  const [pStats, setPStats] = useState([]);
+
+  const product = useSelector((state) =>
+    state.product.products.find((product) => product._id === productId)
+  );
+
+  const MONTHS = useMemo(
+    () => [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Agu",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    []
+  );
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await userRequest.get("orders/income?pid=" + productId);
+        const list = res.data.sort((a, b) => {
+          return a._id - b._id;
+        });
+        list.map((item) =>
+          setPStats((prev) => [
+            ...prev,
+            { name: MONTHS[item._id - 1], Sales: item.total },
+          ])
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getStats();
+  }, [productId, MONTHS]);
+
   return (
     <div className="product">
-      <div className="product-title-container">
-        <h1 className="product-title">Product</h1>
+      <div className="productTitleContainer">
+        <h1 className="productTitle">Product</h1>
         <Link to="/newproduct">
-          <button className="product-add-button">Create</button>
+          <button className="productAddButton">Create</button>
         </Link>
       </div>
-      <div className="product-top">
-        <div className="product-top-left">
-          <Chart data={productData} dataKey="Sales" title="Sales Performance" />
+      <div className="productTop">
+        <div className="productTopLeft">
+          <Chart data={pStats} dataKey="Sales" title="Sales Performance" />
         </div>
-        <div className="product-top-right">
-          <div className="product-info-top">
-            <img
-              src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="product-info-img"
-            />
-            <span className="product-name">Apple Airpods</span>
+        <div className="productTopRight">
+          <div className="productInfoTop">
+            <img src={product.img} alt="" className="productInfoImg" />
+            <span className="productName">{product.title}</span>
           </div>
-          <div className="product-info-bottom">
-            <div className="product-info-item">
-              <span className="product-info-key">id:</span>
-              <span className="product-info-value">123</span>
+          <div className="productInfoBottom">
+            <div className="productInfoItem">
+              <span className="productInfoKey">id:</span>
+              <span className="productInfoValue">{product._id}</span>
             </div>
-            <div className="product-info-item">
-              <span className="product-info-key">sales:</span>
-              <span className="product-info-value">6323</span>
+            <div className="productInfoItem">
+              <span className="productInfoKey">sales:</span>
+              <span className="productInfoValue">5123</span>
             </div>
-            <div className="product-info-item">
-              <span className="product-info-key">active:</span>
-              <span className="product-info-value">yes</span>
-            </div>
-            <div className="product-info-item">
-              <span className="product-info-key">instock:</span>
-              <span className="product-info-value">no</span>
+            <div className="productInfoItem">
+              <span className="productInfoKey">in stock:</span>
+              <span className="productInfoValue">{product.inStock}</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="product-bottom">
-        <form className="product-form">
-          <div className="product-form-left">
+      <div className="productBottom">
+        <form className="productForm">
+          <div className="productFormLeft">
             <label>Product Name</label>
-            <input type="text" placeholder="Apple Airpod" />
+            <input type="text" placeholder={product.title} />
+            <label>Product Description</label>
+            <input type="text" placeholder={product.desc} />
+            <label>Price</label>
+            <input type="text" placeholder={product.price} />
             <label>In Stock</label>
             <select name="inStock" id="idStock">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <label>Active</label>
-            <select name="active" id="active">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </div>
-          <div className="product-form-right">
-            <div className="product-upload">
-              <img
-                src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                alt=""
-                className="product-upload-img"
-              />
+          <div className="productFormRight">
+            <div className="productUpload">
+              <img src={product.img} alt="" className="productUploadImg" />
               <label for="file">
                 <Publish />
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="product-button">Update</button>
+            <button className="productButton">Update</button>
           </div>
         </form>
       </div>
     </div>
   );
-};
-
-export default Product;
+}

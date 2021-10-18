@@ -1,57 +1,58 @@
-import React, { useState } from "react";
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../DummyData";
+import { userRows } from "../../DummyData"
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const UserList = () => {
+export default function UserList() {
   const [data, setData] = useState(userRows);
+
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-
+  
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { field: "id", headerName: "ID", width: 90 },
     {
       field: "user",
       headerName: "User",
-      width: 300,
+      width: 200,
       renderCell: (params) => {
         return (
-          <div className="user-list-user">
-            <img src={params.row.avatar} alt="" className="user-list-img" />
+          <div className="userListUser">
+            <img className="userListImg" src={params.row.avatar} alt="" />
             {params.row.username}
           </div>
         );
       },
     },
-    { field: "email", headerName: "Email", width: 400 },
+    { field: "email", headerName: "Email", width: 200 },
     {
       field: "status",
       headerName: "Status",
-      width: 200,
+      width: 120,
     },
     {
       field: "transaction",
-      headerName: "Transaction",
-      width: 300,
+      headerName: "Transaction Volume",
+      width: 160,
     },
     {
       field: "action",
-      headername: "Action",
+      headerName: "Action",
       width: 150,
       renderCell: (params) => {
         return (
-          <div className="user-list-user">
+          <>
             <Link to={"/user/" + params.row.id}>
-              <button className="user-list-edit">Edit</button>
+              <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="user-list-delete"
+              className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
-          </div>
+          </>
         );
       },
     },
@@ -68,6 +69,4 @@ const UserList = () => {
       />
     </div>
   );
-};
-
-export default UserList;
+}

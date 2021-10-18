@@ -1,128 +1,123 @@
-import React from "react";
-import "./user.css";
 import {
   CalendarToday,
-  LocationCity,
+  LocationSearching,
   MailOutline,
   PermIdentity,
   PhoneAndroid,
   Publish,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import "./user.css";
 
-const User = () => {
+export default function User() {
   return (
     <div className="user">
-      <div className="user-title-container">
-        <h1 className="user-title">Edit User</h1>
-        <Link to="/newuser">
-          <button className="user-add-button">Create</button>
+      <div className="userTitleContainer">
+        <h1 className="userTitle">Edit User</h1>
+        <Link to="/newUser">
+          <button className="userAddButton">Create</button>
         </Link>
       </div>
-      <div className="user-container">
-        <div className="user-show">
-          <div className="user-show-top">
+      <div className="userContainer">
+        <div className="userShow">
+          <div className="userShowTop">
             <img
               src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
-              className="user-show-img"
+              className="userShowImg"
             />
-            <div className="user-show-top-title">
-              <span className="user-show-username">Shubham Shrestha</span>
-              <span className="user-show-user-title">Web Developer</span>
+            <div className="userShowTopTitle">
+              <span className="userShowUsername">Anna Becker</span>
+              <span className="userShowUserTitle">Software Engineer</span>
             </div>
           </div>
-          <div className="user-show-bottom">
-            <span className="user-show-title">Account Details</span>
-            <div className="user-show-info">
-              <PermIdentity className="user-show-icon" />
-              <span className="user-show-info-title">SShres007</span>
+          <div className="userShowBottom">
+            <span className="userShowTitle">Account Details</span>
+            <div className="userShowInfo">
+              <PermIdentity className="userShowIcon" />
+              <span className="userShowInfoTitle">annabeck99</span>
             </div>
-            <div className="user-show-info">
-              <CalendarToday className="user-show-icon" />
-              <span className="user-show-info-title">1999/07/03</span>
+            <div className="userShowInfo">
+              <CalendarToday className="userShowIcon" />
+              <span className="userShowInfoTitle">10.12.1999</span>
             </div>
-            <span className="user-show-title">Contact Details</span>
-            <div className="user-show-info">
-              <PhoneAndroid className="user-show-icon" />
-              <span className="user-show-info-title">+977 984440077</span>
+            <span className="userShowTitle">Contact Details</span>
+            <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">+1 123 456 67</span>
             </div>
-            <div className="user-show-info">
-              <MailOutline className="user-show-icon" />
-              <span className="user-show-info-title">
-                shubhamshrestha7777@gmail.com
-              </span>
+            <div className="userShowInfo">
+              <MailOutline className="userShowIcon" />
+              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
             </div>
-            <div className="user-show-info">
-              <LocationCity className="user-show-icon" />
-              <span className="user-show-info-title">Kathmandu | Nepal</span>
+            <div className="userShowInfo">
+              <LocationSearching className="userShowIcon" />
+              <span className="userShowInfoTitle">New York | USA</span>
             </div>
           </div>
         </div>
-        <div className="user-update">
-          <span className="user-update-title">Edit</span>
-          <form className="user-update-form">
-            <div className="user-update-left">
-              <div className="user-update-item">
+        <div className="userUpdate">
+          <span className="userUpdateTitle">Edit</span>
+          <form className="userUpdateForm">
+            <div className="userUpdateLeft">
+              <div className="userUpdateItem">
                 <label>Username</label>
                 <input
                   type="text"
-                  placeholder="SShres007"
-                  className="user-update-input"
+                  placeholder="annabeck99"
+                  className="userUpdateInput"
                 />
               </div>
-              <div className="user-update-item">
+              <div className="userUpdateItem">
                 <label>Full Name</label>
                 <input
                   type="text"
-                  placeholder="Shubham Shrestha"
-                  className="user-update-input"
+                  placeholder="Anna Becker"
+                  className="userUpdateInput"
                 />
               </div>
-              <div className="user-update-item">
+              <div className="userUpdateItem">
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="shubhamshrestha7777@gmail.com"
-                  className="user-update-input"
+                  placeholder="annabeck99@gmail.com"
+                  className="userUpdateInput"
                 />
               </div>
-              <div className="user-update-item">
+              <div className="userUpdateItem">
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="+977 984440077"
-                  className="user-update-input"
+                  placeholder="+1 123 456 67"
+                  className="userUpdateInput"
                 />
               </div>
-              <div className="user-update-item">
+              <div className="userUpdateItem">
                 <label>Address</label>
                 <input
                   type="text"
-                  placeholder="Kathmandu | Nepal"
-                  className="user-update-input"
+                  placeholder="New York | USA"
+                  className="userUpdateInput"
                 />
               </div>
             </div>
-            <div className="user-update-right">
-              <div className="user-update-upload">
+            <div className="userUpdateRight">
+              <div className="userUpdateUpload">
                 <img
+                  className="userUpdateImg"
                   src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                   alt=""
-                  className="user-update-img"
                 />
                 <label htmlFor="file">
-                  <Publish className="user-update-icon" />
+                  <Publish className="userUpdateIcon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <button className="user-update-button">Update</button>
+              <button className="userUpdateButton">Update</button>
             </div>
           </form>
         </div>
       </div>
     </div>
   );
-};
-
-export default User;
+}

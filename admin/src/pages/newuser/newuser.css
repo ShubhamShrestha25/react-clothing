@@ -1,14 +1,13 @@
-.newuser {
+.newUser {
   flex: 4;
-  padding: 0px 20px;
 }
 
-.new-user-form {
+.newUserForm {
   display: flex;
   flex-wrap: wrap;
 }
 
-.new-user-item {
+.newUserItem {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -16,43 +15,43 @@
   margin-right: 20px;
 }
 
-.new-user-item > label {
+.newUserItem > label {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
 
-.new-user-item > input {
+.newUserItem > input {
   height: 20px;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 
-.new-user-gender > input {
+.newUserGender > input {
   margin-top: 15px;
 }
 
-.new-user-gender > label {
-  margin: 10px;
-  font-size: 18px;
-  color: #555;
+.newUserGender>label{
+    margin: 10px;
+    font-size: 18px;
+    color: #555;
 }
 
-.new-user-select {
-  height: 40px;
-  border-radius: 5px;
+.newUserSelect{
+    height: 40px;
+    border-radius: 5px;
 }
 
-.new-user-button {
-  width: 200px;
-  border: none;
-  background-color: darkblue;
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 10px;
-  font-weight: 600;
-  margin-top: 30px;
-  cursor: pointer;
+.newUserButton{
+    width: 200px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
 }

@@ -1,9 +1,9 @@
-import { React, useEffect, useState } from "react";
 import "./featuredInfo.css";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
-import { userRequest } from "../../requestMethod";
+import { useEffect, useState } from "react";
+import { userRequest } from "../../requestMethods";
 
-const FeaturedInfo = () => {
+export default function FeaturedInfo() {
   const [income, setIncome] = useState([]);
   const [perc, setPerc] = useState(0);
 
@@ -18,43 +18,43 @@ const FeaturedInfo = () => {
     getIncome();
   }, []);
 
-  console.log(income);
-
   return (
     <div className="featured">
-      <div className="featured-item">
-        <span className="featured-title">Revanue</span>
-        <div className="featured-money-container">
-          <span className="featured-money">${income[1]}</span>
-          <span className="featured-money-rate">
-            {Math.floor(perc)} %
-            <ArrowDownward className="featured-icon negative" />
+      <div className="featuredItem">
+        <span className="featuredTitle">Revanue</span>
+        <div className="featuredMoneyContainer">
+          <span className="featuredMoney">${income[1]?.total}</span>
+          <span className="featuredMoneyRate">
+            %{Math.floor(perc)}{" "}
+            {perc < 0 ? (
+              <ArrowDownward className="featuredIcon negative" />
+            ) : (
+              <ArrowUpward className="featuredIcon" />
+            )}
           </span>
         </div>
-        <span className="featured-sub">Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
-      <div className="featured-item">
-        <span className="featured-title">Sales</span>
-        <div className="featured-money-container">
-          <span className="featured-money">$1,666</span>
-          <span className="featured-money-rate">
-            -8.4 <ArrowDownward className="featured-icon negative" />
+      <div className="featuredItem">
+        <span className="featuredTitle">Sales</span>
+        <div className="featuredMoneyContainer">
+          <span className="featuredMoney">$4,415</span>
+          <span className="featuredMoneyRate">
+            -1.4 <ArrowDownward className="featuredIcon negative" />
           </span>
         </div>
-        <span className="featured-sub">Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
-      <div className="featured-item">
-        <span className="featured-title">Cost</span>
-        <div className="featured-money-container">
-          <span className="featured-money">$1,415</span>
-          <span className="featured-money-rate">
-            +2.4 <ArrowUpward className="featured-icon" />
+      <div className="featuredItem">
+        <span className="featuredTitle">Cost</span>
+        <div className="featuredMoneyContainer">
+          <span className="featuredMoney">$2,225</span>
+          <span className="featuredMoneyRate">
+            +2.4 <ArrowUpward className="featuredIcon" />
           </span>
         </div>
-        <span className="featured-sub">Compared to last month</span>
+        <span className="featuredSub">Compared to last month</span>
       </div>
     </div>
   );
-};
-
-export default FeaturedInfo;
+}

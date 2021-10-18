@@ -3,41 +3,40 @@
   padding: 20px;
 }
 
-.product-title-container {
+.productTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.product-add-button {
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
+.productAddButton {
   width: 80px;
-  cursor: pointer;
+  border: none;
+  padding: 5px;
   background-color: teal;
-  color: #fff;
-  font-weight: 600;
+  color: white;
+  border-radius: 5px;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.product-top {
+.productTop {
   display: flex;
 }
 
-.product-top-left,
-.product-top-right {
+.productTopLeft,
+.productTopRight {
   flex: 1;
 }
 
-.product-top-right {
+.productTopRight {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.product-info-img {
+.productInfoImg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -45,64 +44,63 @@
   margin-right: 20px;
 }
 
-.product-info-top {
+.productInfoTop {
   display: flex;
   align-items: center;
 }
 
-.product-name {
+.productName {
   font-weight: 600;
 }
 
-.product-info-bottom {
+.productInfoBottom {
   margin-top: 10px;
 }
 
-.product-info-item {
+.productInfoItem {
   width: 150px;
   display: flex;
   justify-content: space-between;
 }
 
-.product-info-value {
+.productInfoValue {
   font-weight: 300;
 }
 
-.product-bottom {
+.productBottom {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.product-form {
+.productForm {
   display: flex;
   justify-content: space-between;
 }
 
-.product-form-left {
+.productFormLeft {
   display: flex;
   flex-direction: column;
 }
 
-.product-form-left > label {
+.productFormLeft > label {
   margin-bottom: 10px;
   color: gray;
 }
 
-.product-form-left > input {
+.productFormLeft > input {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
   border-bottom: 1px solid gray;
 }
 
-.product-form-left > select {
+.productFormLeft >select{
   margin-bottom: 10px;
-  padding: 10px;
 }
 
-.product-upload-img {
+.productUploadImg{
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -110,24 +108,23 @@
   margin-right: 20px;
 }
 
-.product-form-right {
+.productFormRight{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.product-upload {
+.productUpload{
   display: flex;
   align-items: center;
 }
 
-.product-button {
+.productButton{
   border: none;
-  border-radius: 5px;
   padding: 5px;
-  cursor: pointer;
+  border-radius: 5px;
   background-color: darkblue;
-  color: #fff;
+  color:white;
   font-weight: 600;
   cursor: pointer;
 }

@@ -1,12 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
 import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/featuredinfo/FeaturedInfo";
 import "./home.css";
-import WidgetSmall from "../../components/widgetsmall/WidgetSmall";
-import WidgetLarge from "../../components/widgetlarge/WidgetLarge";
-import { userRequest } from "../../requestMethod";
+import WidgetSm from "../../components/widgetSm/WidgetSm";
+import WidgetLg from "../../components/widgetLg/WidgetLg";
+import { useEffect, useMemo, useState } from "react";
+import { userRequest } from "../../requestMethods";
 
-const Home = () => {
+export default function Home() {
   const [userStats, setUserStats] = useState([]);
 
   const MONTHS = useMemo(
@@ -51,12 +51,10 @@ const Home = () => {
         grid
         dataKey="Active User"
       />
-      <div className="home-widgets">
-        <WidgetSmall />
-        <WidgetLarge />
+      <div className="homeWidgets">
+        <WidgetSm />
+        <WidgetLg />
       </div>
     </div>
   );
-};
-
-export default Home;
+}
